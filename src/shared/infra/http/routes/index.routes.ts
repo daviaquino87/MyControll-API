@@ -1,3 +1,4 @@
+import { AppError } from "@shared/error/AppError";
 import { Router } from "express";
 
 export const indexRouter = Router();
