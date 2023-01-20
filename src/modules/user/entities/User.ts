@@ -1,4 +1,4 @@
-import { Replace } from "helper/Replace";
+import { Replace } from "../../../helper/Replace";
 import { v4 as uuidV4 } from "uuid";
 
 interface IUserProps {
@@ -7,8 +7,6 @@ interface IUserProps {
   cpf: string;
   birth_date: string;
   password: string;
-  transactions: string;
-  categories: string;
   created_At: Date;
 }
 
@@ -66,22 +64,6 @@ export class User {
 
   public get password(): string {
     return this.props.password;
-  }
-
-  public set transactions(transactions: string) {
-    this.props.transactions = transactions;
-  }
-
-  public get transactions(): string {
-    return this.props.transactions;
-  }
-
-  public set categories(categories: string) {
-    this.props.categories = categories;
-  }
-
-  public get categories(): string {
-    return this.props.categories;
   }
 
   public get created_At(): Date {
