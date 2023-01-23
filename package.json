@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsnd --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "migration:generate": "typeorm-ts-node-commonjs -d ./src/shared/infra/typeorm/data-source.ts migration:generate ./src/shared/infra/typeorm/migrations/default",
+    "migration:run": "typeorm-ts-node-commonjs -d ./src/shared/infra/typeorm/data-source.ts migration:run ",
     "test": "vitest"
   },
   "keywords": [],
