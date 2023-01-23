@@ -4,5 +4,6 @@ import { User } from "../../entities/User";
 
 export interface IUserRepository {
   create(data: ICreateUserDTO): Promise<void>;
-  findUser(cpf: string): Promise<User>;
+  findUserbyCPF(cpf: string): Promise<User>;
+  findUserByEmail(email: string): Promise<User>;
 }

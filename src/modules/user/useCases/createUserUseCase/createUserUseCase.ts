@@ -8,7 +8,7 @@ export class CreateUserUseCase {
   constructor(private userRepository: IUserRepository) {}
 
   async execute({ name, email, cpf, birth_date, password }: ICreateUserDTO) {
-    const userAlreadyExists = await this.userRepository.findUser(cpf);
+    const userAlreadyExists = await this.userRepository.findUserbyCPF(cpf);
 
     if (userAlreadyExists) {
       throw new AppError("Invalid data.", 404);
