@@ -11,6 +11,13 @@ export class CreateUserController {
       throw new AppError("All fields must be filled in", 404);
     }
 
+    if (password.length < 8) {
+      throw new AppError(
+        "The password field must be at least 8 characters long",
+        404
+      );
+    }
+
     const createUserUseCase = container.resolve(CreateUserUseCase);
     await createUserUseCase.execute({
       name,

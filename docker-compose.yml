@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  database:
+    image: postgres
+    container_name: mycontroll_database
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=mycontroll
+      - POSTGRES_PASSWORD=mycontroll
+      - POSTGRES_DB=mycontroll
+    volumes:
+      - pgdata:/data/postgres
+
+  app:
+    build: .
+    container_name: mycontroll
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/app
+
+volumes:
+  pgdata:
+    driver: local

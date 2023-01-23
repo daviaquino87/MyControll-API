@@ -44,4 +44,20 @@ describe("create a new user", () => {
       await createUserUseCase.execute(user);
     }).rejects.toBeInstanceOf(AppError);
   });
+
+  it("should not be possible to create a user with a password shorter than eight characters", async () => {
+    const user = {
+      name: "Name Test",
+      email: "teste@email.com",
+      birth_date: "12/12/2001",
+      cpf: "291.923.030-13",
+      password: "1234567",
+    };
+
+    await createUserUseCase.execute(user);
+
+    expect(async () => {
+      await createUserUseCase.execute(user);
+    }).rejects.toBeInstanceOf(AppError);
+  });
 });
