@@ -3,9 +3,14 @@ import { IUserRepository } from "../../repositories/interface/IUserRepository";
 
 import bcrypt from "bcrypt";
 import { AppError } from "../../../../shared/error/AppError";
+import { inject, injectable } from "tsyringe";
 
+@injectable()
 export class CreateUserUseCase {
-  constructor(private userRepository: IUserRepository) {}
+  constructor(
+    @inject("userRepositoryInmemory")
+    private userRepository: IUserRepository
+  ) {}
 
   async execute({ name, email, cpf, birth_date, password }: ICreateUserDTO) {
     const userAlreadyExists = await this.userRepository.findUserbyCPF(cpf);

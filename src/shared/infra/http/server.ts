@@ -4,6 +4,8 @@ import express from "express";
 import { indexRouter } from "./routes/index.routes";
 import { errorValidate } from "../../infra/http/middleware/errorValidate";
 
+import "../../container";
+
 const app = express();
 
 app.use(indexRouter);
