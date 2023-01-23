@@ -53,4 +53,14 @@ export class UserRepository implements IUserRepository {
 
     return TypeormMapper.toAplication(user);
   }
+
+  async findUserById(id: string): Promise<User> {
+    const user = await this.repository.findOneBy({ id });
+
+    if (!user) {
+      return null;
+    }
+
+    return TypeormMapper.toAplication(user);
+  }
 }

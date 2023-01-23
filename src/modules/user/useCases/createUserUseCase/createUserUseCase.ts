@@ -14,8 +14,9 @@ export class CreateUserUseCase {
 
   async execute({ name, email, cpf, birth_date, password }: ICreateUserDTO) {
     const userAlreadyExists = await this.userRepository.findUserbyCPF(cpf);
+    const EmailAlreadyExists = await this.userRepository.findUserByEmail(email);
 
-    if (userAlreadyExists) {
+    if (userAlreadyExists || EmailAlreadyExists) {
       throw new AppError("Invalid data.", 404);
     }
 
