@@ -1,12 +1,12 @@
 import { describe, expect, it, beforeEach } from "vitest";
 
-import { CreateUserUseCase } from "./createUserUseCase";
 import { UserRepositoryInMemory } from "../../repositories/in-memory/UserRepositoryInMemory";
+import { CreateUserUseCase } from "./createUserUseCase";
 
 import { AppError } from "../../../../shared/error/AppError";
 
-let createUserUseCase: CreateUserUseCase;
 let userRepositoryInMemory: UserRepositoryInMemory;
+let createUserUseCase: CreateUserUseCase;
 
 describe("create a new user", () => {
   beforeEach(() => {

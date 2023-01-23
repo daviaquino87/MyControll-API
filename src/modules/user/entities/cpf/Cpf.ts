@@ -54,6 +54,6 @@ export class CPF {
     if (!validateLengthCpf || !validateNumberCpf) {
       throw new AppError("Invalid CPF", 404);
     }
-    this.cpf = cpf;
+    this.cpf = cpf.replace(/\D/g, "");
   }
 }
