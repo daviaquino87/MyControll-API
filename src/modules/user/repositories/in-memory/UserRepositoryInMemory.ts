@@ -1,4 +1,5 @@
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { CPF } from "../../entities/cpf/Cpf";
 import { User } from "../../entities/User";
 import { IUserRepository } from "../interface/IUserRepository";
 
@@ -15,7 +16,7 @@ export class UserRepositoryInMemory implements IUserRepository {
     const user = new User({
       name,
       email,
-      cpf,
+      cpf: new CPF(cpf),
       birth_date,
       password,
     });
@@ -24,6 +25,6 @@ export class UserRepositoryInMemory implements IUserRepository {
   }
 
   async findUser(cpf: string): Promise<User> {
-    return this.users.find((user) => user.cpf === cpf);
+    return this.users.find((user) => user.cpf.value === cpf);
   }
 }

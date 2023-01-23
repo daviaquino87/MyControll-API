@@ -4,6 +4,7 @@ import { CreateUserUseCase } from "./createUserUseCase";
 import { UserRepositoryInMemory } from "../../repositories/in-memory/UserRepositoryInMemory";
 
 import { AppError } from "../../../../shared/error/AppError";
+import { CPF } from "../../entities/cpf/Cpf";
 
 let createUserUseCase: CreateUserUseCase;
 let userRepositoryInMemory: UserRepositoryInMemory;
@@ -18,7 +19,7 @@ describe("create a new user", () => {
       name: "Name Test",
       email: "teste@email.com",
       birth_date: "12/12/2001",
-      cpf: "0000000000",
+      cpf: "00000000000",
       password: "ubvqwvwo8wveqc",
     };
 
@@ -33,7 +34,8 @@ describe("create a new user", () => {
       name: "Name Test",
       email: "teste@email.com",
       birth_date: "12/12/2001",
-      cpf: "0000000000",
+      cpf: "00000000000",
+
       password: "ubvqwvwo8wveqc",
     };
 

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { CPF } from "./cpf/Cpf";
 import { User } from "./User";
 
 describe("create user", () => {
@@ -7,7 +8,7 @@ describe("create user", () => {
       name: "Name Test",
       email: "teste@email.com",
       birth_date: "12/12/2001",
-      cpf: "0000000000",
+      cpf: new CPF("00000000000"),
       password: "ubvqwvwo8wveqc",
     });
 

@@ -1,10 +1,11 @@
 import { Replace } from "../../../helper/Replace";
 import { v4 as uuidV4 } from "uuid";
+import { CPF } from "./cpf/Cpf";
 
 interface IUserProps {
   name: string;
   email: string;
-  cpf: string;
+  cpf: CPF;
   birth_date: string;
   password: string;
   created_At: Date;
@@ -42,11 +43,11 @@ export class User {
     return this.props.email;
   }
 
-  public set cpf(cpf: string) {
+  public set cpf(cpf: CPF) {
     this.props.cpf = cpf;
   }
 
-  public get cpf(): string {
+  public get cpf(): CPF {
     return this.props.cpf;
   }
 

@@ -1,3 +1,5 @@
+import { CPF } from "../entities/cpf/Cpf";
+
 export interface ICreateUserDTO {
   name: string;
   email: string;
