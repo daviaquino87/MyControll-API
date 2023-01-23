@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { AppError } from "@shared/error/AppError";
+
+import { AppError } from "../../../../shared/error/AppError";
 
 export async function errorValidate(
   error: Error & AppError,

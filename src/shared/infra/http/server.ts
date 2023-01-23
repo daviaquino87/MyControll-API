@@ -1,8 +1,8 @@
 import "dotenv/config";
 import express from "express";
 
-import { errorValidate } from "@shared/infra/http/middleware/errorValidate";
 import { indexRouter } from "./routes/index.routes";
+import { errorValidate } from "../../infra/http/middleware/errorValidate";
 
 const app = express();
 

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { AppError } from "../../../../shared/error/AppError";
+
 import { CPF } from "./Cpf";
+import { AppError } from "../../../../shared/error/AppError";
 
 describe("cpf validate tests", () => {
   it("should be able possible to create a new valid cpf", () => {

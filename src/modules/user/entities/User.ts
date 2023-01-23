@@ -1,5 +1,6 @@
 import { Replace } from "../../../helper/Replace";
 import { v4 as uuidV4 } from "uuid";
+
 import { CPF } from "./cpf/Cpf";
 
 interface IUserProps {

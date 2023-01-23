@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { CPF } from "./cpf/Cpf";
 import { User } from "./User";
 

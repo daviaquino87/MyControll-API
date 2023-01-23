@@ -1,7 +1,8 @@
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { IUserRepository } from "../../repositories/interface/IUserRepository";
-import { AppError } from "../../../../shared/error/AppError";
+
 import bcrypt from "bcrypt";
+import { AppError } from "../../../../shared/error/AppError";
 
 export class CreateUserUseCase {
   constructor(private userRepository: IUserRepository) {}

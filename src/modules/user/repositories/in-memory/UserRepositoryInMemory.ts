@@ -1,7 +1,8 @@
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { IUserRepository } from "../interface/IUserRepository";
+
 import { CPF } from "../../entities/cpf/Cpf";
 import { User } from "../../entities/User";
-import { IUserRepository } from "../interface/IUserRepository";
 
 export class UserRepositoryInMemory implements IUserRepository {
   users: User[] = [];

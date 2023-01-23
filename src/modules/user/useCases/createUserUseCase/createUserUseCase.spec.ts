@@ -4,7 +4,6 @@ import { CreateUserUseCase } from "./createUserUseCase";
 import { UserRepositoryInMemory } from "../../repositories/in-memory/UserRepositoryInMemory";
 
 import { AppError } from "../../../../shared/error/AppError";
-import { CPF } from "../../entities/cpf/Cpf";
 
 let createUserUseCase: CreateUserUseCase;
 let userRepositoryInMemory: UserRepositoryInMemory;
