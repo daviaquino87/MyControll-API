@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { inject, injectable } from "tsyringe";
 import { IUserRepository } from "../../repositories/interface/IUserRepository";
 
 import { compare } from "bcrypt";
@@ -19,9 +20,12 @@ interface IResponse {
   token: string;
   authorized: boolean;
 }
-
+@injectable()
 export class AuthenticateUserUseCase {
-  constructor(private userRepository: IUserRepository) {}
+  constructor(
+    @inject("userRepository")
+    private userRepository: IUserRepository
+  ) {}
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.userRepository.findUserByEmail(email);
