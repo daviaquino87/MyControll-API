@@ -18,7 +18,7 @@ describe("create a new user", () => {
       name: "Name Test",
       email: "teste@email.com",
       birth_date: "12/12/2001",
-      cpf: "00000000000",
+      cpf: "291.923.030-13",
       password: "ubvqwvwo8wveqc",
     };
 
@@ -33,7 +33,7 @@ describe("create a new user", () => {
       name: "Name Test",
       email: "teste@email.com",
       birth_date: "12/12/2001",
-      cpf: "00000000000",
+      cpf: "291.923.030-13",
 
       password: "ubvqwvwo8wveqc",
     };

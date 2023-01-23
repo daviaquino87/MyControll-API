@@ -9,7 +9,7 @@ describe("create user", () => {
       name: "Name Test",
       email: "teste@email.com",
       birth_date: "12/12/2001",
-      cpf: new CPF("00000000000"),
+      cpf: new CPF("291.923.030-13"),
       password: "ubvqwvwo8wveqc",
     });
 
