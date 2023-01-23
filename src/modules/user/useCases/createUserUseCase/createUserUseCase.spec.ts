@@ -1,7 +1,9 @@
 import { describe, expect, it, beforeEach } from "vitest";
+
 import { CreateUserUseCase } from "./createUserUseCase";
-import { User } from "../../../user/entities/User";
 import { UserRepositoryInMemory } from "../../repositories/in-memory/UserRepositoryInMemory";
+
+import { AppError } from "../../../../shared/error/AppError";
 
 let createUserUseCase: CreateUserUseCase;
 let userRepositoryInMemory: UserRepositoryInMemory;
@@ -24,5 +26,21 @@ describe("create a new user", () => {
 
     expect(userRepositoryInMemory.users).toHaveLength(1);
     expect(userRepositoryInMemory.users[0].name).toEqual(user.name);
+  });
+
+  it("should not a possible to create a new user with cpf already exists", async () => {
+    const user = {
+      name: "Name Test",
+      email: "teste@email.com",
+      birth_date: "12/12/2001",
+      cpf: "0000000000",
+      password: "ubvqwvwo8wveqc",
+    };
+
+    await createUserUseCase.execute(user);
+
+    expect(async () => {
+      await createUserUseCase.execute(user);
+    }).rejects.toBeInstanceOf(AppError);
   });
 });
