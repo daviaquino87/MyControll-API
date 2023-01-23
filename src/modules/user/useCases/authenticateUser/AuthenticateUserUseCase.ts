@@ -27,7 +27,7 @@ export class AuthenticateUserUseCase {
     const user = await this.userRepository.findUserByEmail(email);
 
     if (!user) {
-      throw new AppError("Incorrect email or password", 404);
+      throw new AppError("Incorrect email or password");
     }
 
     const passwordMath = await compare(password, user.password);
