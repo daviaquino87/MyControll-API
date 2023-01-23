@@ -8,6 +8,7 @@ import { indexRouter } from "./routes/index.routes";
 import { errorValidate } from "../../infra/http/middleware/errorValidate";
 
 import "../../container";
+import "../typeorm";
 
 const app = express();
 app.use(express.json());
