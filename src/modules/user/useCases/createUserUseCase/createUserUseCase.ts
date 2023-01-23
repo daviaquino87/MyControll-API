@@ -5,10 +5,10 @@ import bcrypt from "bcrypt";
 import { AppError } from "../../../../shared/error/AppError";
 import { inject, injectable } from "tsyringe";
 
-// @injectable()
+@injectable()
 export class CreateUserUseCase {
   constructor(
-    // @inject("userRepositoryInmemory")
+    @inject("userRepository")
     private userRepository: IUserRepository
   ) {}
 

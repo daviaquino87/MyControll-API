@@ -1,9 +1,6 @@
 import { container } from "tsyringe";
 
 import { IUserRepository } from "../../modules/user/repositories/interface/IUserRepository";
-import { UserRepositoryInMemory } from "../../modules/user/repositories/in-memory/UserRepositoryInMemory";
+import { UserRepository } from "../../modules/user/infra/repositories/UserRepository";
 
-container.registerSingleton<IUserRepository>(
-  "userRepositoryInmemory",
-  UserRepositoryInMemory
-);
+container.registerSingleton<IUserRepository>("userRepository", UserRepository);

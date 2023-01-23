@@ -36,11 +36,21 @@ export class UserRepository implements IUserRepository {
 
   async findUserbyCPF(cpf: string): Promise<User> {
     const user = await this.repository.findOneBy({ cpf });
+
+    if (!user) {
+      return null;
+    }
+
     return TypeormMapper.toAplication(user);
   }
 
   async findUserByEmail(email: string): Promise<User> {
     const user = await this.repository.findOneBy({ email });
+
+    if (!user) {
+      return null;
+    }
+
     return TypeormMapper.toAplication(user);
   }
 }
