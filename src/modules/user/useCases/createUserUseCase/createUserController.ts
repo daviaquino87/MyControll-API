@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AppError } from "src/shared/error/AppError";
+import { AppError } from "../../../../shared/error/AppError";
 import { container } from "tsyringe";
 import { CreateUserUseCase } from "./createUserUseCase";
 
