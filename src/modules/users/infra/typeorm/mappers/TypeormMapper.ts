@@ -1,6 +1,6 @@
-import { User as entitie } from "../../entities/User";
-import { User } from "../../../../shared/infra/typeorm/entities/User";
-import { CPF } from "../../entities/cpf/Cpf";
+import { User as entitie } from "../../../entities/User";
+import { User } from "../../../../../shared/infra/typeorm/entities/User";
+import { CPF } from "../../../entities/cpf/Cpf";
 
 export class TypeormMapper {
   public static toOrm(user: entitie): User {

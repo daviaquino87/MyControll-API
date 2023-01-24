@@ -1,11 +1,11 @@
-import { AppdataSource } from "../../../../shared/infra/typeorm/data-source";
-import { User as userOrm } from "../../../../shared/infra/typeorm/entities/User";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { AppdataSource } from "../../../../../shared/infra/typeorm/data-source";
+import { User as userOrm } from "../../../../../shared/infra/typeorm/entities/User";
+import { ICreateUserDTO } from "../../../dtos/ICreateUserDTO";
 
-import { CPF } from "../../entities/cpf/Cpf";
-import { User } from "../../entities/User";
+import { CPF } from "../../../entities/cpf/Cpf";
+import { User } from "../../../entities/User";
 
-import { IUserRepository } from "../../repositories/interface/IUserRepository";
+import { IUserRepository } from "../../../repositories/interface/IUserRepository";
 import { TypeormMapper } from "../mappers/TypeormMapper";
 
 export class UserRepository implements IUserRepository {
