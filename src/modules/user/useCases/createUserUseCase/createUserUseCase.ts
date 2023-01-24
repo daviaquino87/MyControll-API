@@ -22,11 +22,14 @@ export class CreateUserUseCase {
 
     const passwordHash = await bcrypt.hash(password, 8);
 
+    const array_date = birth_date.split("/");
+    const birth_date_formate = `${array_date[2]}/${array_date[1]}/${array_date[0]}`;
+
     await this.userRepository.create({
       name,
       email,
       cpf,
-      birth_date,
+      birth_date: birth_date_formate,
       password: passwordHash,
     });
   }
