@@ -1,8 +1,7 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import { UserRepositoryInMemory } from "../../repositories/in-memory/UserRepositoryInMemory";
 import { CreateUserUseCase } from "../createUserUseCase/createUserUseCase";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
+
 import { AppError } from "../../../../shared/error/AppError";
 
 let userRepositoryInMemory: UserRepositoryInMemory;

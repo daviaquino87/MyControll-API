@@ -1,5 +1,3 @@
-import { describe, it, expect } from "vitest";
-
 import { CPF } from "./Cpf";
 import { AppError } from "../../../../shared/error/AppError";
 

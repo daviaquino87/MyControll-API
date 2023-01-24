@@ -1,5 +1,3 @@
-import { describe, expect, it, beforeEach } from "vitest";
-
 import { UserRepositoryInMemory } from "../../repositories/in-memory/UserRepositoryInMemory";
 import { CreateUserUseCase } from "./createUserUseCase";
 
