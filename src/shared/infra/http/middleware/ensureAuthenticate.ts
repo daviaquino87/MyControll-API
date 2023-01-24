@@ -1,6 +1,6 @@
 import { verify } from "jsonwebtoken";
 import { NextFunction, Request, Response } from "express";
-import { UserRepository } from "../../../../modules/user/infra/repositories/UserRepository";
+import { UserRepository } from "../../../../modules/users/infra/repositories/UserRepository";
 import { AppError } from "../../../error/AppError";
 
 interface JwtPlaylod {
