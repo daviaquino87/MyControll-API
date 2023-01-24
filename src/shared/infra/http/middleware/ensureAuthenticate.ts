@@ -21,10 +21,7 @@ export async function ensureAuthenticated(
   const [, token] = authorization.split(" ");
 
   try {
-    const { sub: user_id } = verify(
-      token,
-      "9d4a129eb058dce7bae2d1534ac9ad4bb45164fb"
-    ) as JwtPlaylod;
+    const { sub: user_id } = verify(token, process.env.JWT_PASS) as JwtPlaylod;
 
     const userRepository = new UserRepository();
     const user = await userRepository.findUserById(user_id);
@@ -34,7 +31,7 @@ export async function ensureAuthenticated(
     }
 
     request.user = {
-      id: user_id,
+      id: user.id,
     };
   } catch {
     throw new AppError("Invalid token!", 401);

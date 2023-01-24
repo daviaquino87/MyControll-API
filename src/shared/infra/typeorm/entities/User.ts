@@ -15,7 +15,7 @@ export class User {
   cpf: string;
 
   @Column()
-  birth_date: string;
+  birth_date: Date;
 
   @Column()
   password: string;

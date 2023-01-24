@@ -1,4 +1,11 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryColumn,
+} from "typeorm";
+import { User } from "./User";
 
 @Entity("transactions")
 export class Transaction {
@@ -11,10 +18,11 @@ export class Transaction {
   @Column({ type: "text" })
   type: string;
 
+  @ManyToOne(() => User)
   @Column({ type: "text" })
   userID: string;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   categoryID?: string;
 
   @CreateDateColumn()

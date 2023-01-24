@@ -60,7 +60,6 @@ export class UserRepository implements IUserRepository {
     if (!user) {
       return null;
     }
-
     return TypeormMapper.toAplication(user);
   }
 }
