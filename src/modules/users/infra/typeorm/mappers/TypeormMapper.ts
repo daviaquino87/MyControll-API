@@ -18,13 +18,16 @@ export class TypeormMapper {
   }
 
   public static toAplication(user: User): entitie {
-    return new entitie({
-      name: user.name,
-      email: user.email,
-      cpf: new CPF(user.cpf),
-      birth_date: user.birth_date,
-      password: user.password,
-      created_At: user.created_at,
-    });
+    return new entitie(
+      {
+        name: user.name,
+        email: user.email,
+        cpf: new CPF(user.cpf),
+        birth_date: user.birth_date,
+        password: user.password,
+        created_At: user.created_at,
+      },
+      user.id
+    );
   }
 }
