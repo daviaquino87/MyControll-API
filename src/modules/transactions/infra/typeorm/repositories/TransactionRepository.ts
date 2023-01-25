@@ -19,10 +19,18 @@ export class TransactionRepository implements ITransactionRepository {
     userID,
     categoryID,
   }: ICreateTransaction): Promise<void> {
-    const data = new Transaction({ value, type, userID, categoryID });
+    const transaction = new Transaction({ value, type, userID, categoryID });
 
-    const raw = this.repository.create(TypeormMapper.toTypeorm(data));
+    const raw = this.repository.create(TypeormMapper.toTypeorm(transaction));
 
     await this.repository.save(raw);
+  }
+
+  async listAll(userID: string): Promise<Transaction[]> {
+    const data = await this.repository.findBy({ userID });
+
+    const user = data.map((user) => TypeormMapper.toApplication(user));
+
+    return user;
   }
 }

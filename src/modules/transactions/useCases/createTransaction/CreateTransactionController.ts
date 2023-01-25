@@ -9,11 +9,6 @@ export class CreateTransactionController {
     const { value, type, categoryID } = request.body;
     const { id } = request.user;
 
-    console.log(
-      "------------------------------------------------------------------"
-    );
-    console.log(id);
-
     if (!value || !type) {
       throw new AppError("All fields must be filled in", 404);
     }

@@ -8,7 +8,6 @@ describe("Transaction generate test", () => {
       userID: "idsidvisdv",
     });
 
-    console.log(transaction);
     expect(transaction).toBeTruthy();
   });
 });

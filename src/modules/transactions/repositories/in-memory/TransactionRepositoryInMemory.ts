@@ -20,4 +20,10 @@ export class TransactionRepositoryInMemory implements ITransactionRepository {
 
     this.transactions.push(transaction);
   }
+
+  async listAll(userID: string): Promise<Transaction[]> {
+    return this.transactions.filter(
+      (transaction) => transaction.userID === userID
+    );
+  }
 }
