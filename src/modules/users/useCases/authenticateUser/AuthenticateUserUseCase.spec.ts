@@ -21,7 +21,7 @@ describe("Auth user tests", () => {
     const user = {
       name: "Name Test",
       email: "teste@email.com",
-      birth_date: "12/12/2001",
+      birth_date: new Date("12/12/2001"),
       cpf: "291.923.030-13",
       password: "ubvqwvwo8wveqc",
     };
@@ -40,7 +40,7 @@ describe("Auth user tests", () => {
     const user = {
       name: "Name Test",
       email: "teste@email.com",
-      birth_date: "12/12/2001",
+      birth_date: new Date("12/12/2001"),
       cpf: "291.923.030-13",
       password: "ubvqwvwo8wveqc",
     };

@@ -31,7 +31,7 @@ describe("Transaction list test", () => {
       name: "User Test",
       email: "user@test.com",
       cpf: "490.084.700-39",
-      birth_date: "08/08/2001",
+      birth_date: new Date("08/08/2001"),
       password: "akbdkh123",
     };
 

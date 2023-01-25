@@ -15,7 +15,7 @@ describe("create a new user", () => {
     const user = {
       name: "Name Test",
       email: "teste@email.com",
-      birth_date: "12/12/2001",
+      birth_date: new Date("12/12/2001"),
       cpf: "291.923.030-13",
       password: "ubvqwvwo8wveqc",
     };
@@ -30,9 +30,8 @@ describe("create a new user", () => {
     const user = {
       name: "Name Test",
       email: "teste@email.com",
-      birth_date: "12/12/2001",
+      birth_date: new Date("12/12/2001"),
       cpf: "291.923.030-13",
-
       password: "ubvqwvwo8wveqc",
     };
 
@@ -47,7 +46,7 @@ describe("create a new user", () => {
     const user = {
       name: "Name Test",
       email: "teste@email.com",
-      birth_date: "12/12/2001",
+      birth_date: new Date("12/12/2001"),
       cpf: "291.923.030-13",
       password: "1234567",
     };

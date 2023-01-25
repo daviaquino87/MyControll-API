@@ -7,7 +7,7 @@ interface IUserProps {
   name: string;
   email: string;
   cpf: CPF;
-  birth_date: string;
+  birth_date: Date;
   password: string;
   created_At: Date;
 }
@@ -52,11 +52,11 @@ export class User {
     return this.props.cpf;
   }
 
-  public set birth_date(birth_date: string) {
+  public set birth_date(birth_date: Date) {
     this.props.birth_date = birth_date;
   }
 
-  public get birth_date(): string {
+  public get birth_date(): Date {
     return this.props.birth_date;
   }
 
