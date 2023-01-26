@@ -10,14 +10,20 @@ export class TransactionRepositoryInMemory implements ITransactionRepository {
     type,
     userID,
     categoryID,
+    transact_date,
   }: ICreateTransaction): Promise<void> {
+    if (transact_date) {
+      transact_date = new Date(transact_date);
+    }
     const transaction = new Transaction({
       value,
       type,
       userID,
       categoryID,
+      transact_date: transact_date ?? new Date(),
     });
 
+    console.log(transaction);
     this.transactions.push(transaction);
   }
 

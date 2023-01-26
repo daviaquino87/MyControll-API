@@ -6,7 +6,7 @@ import { AppError } from "../../../../shared/error/AppError";
 
 export class CreateTransactionController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { value, type, categoryID } = request.body;
+    const { value, type, categoryID, transact_date } = request.body;
     const { id } = request.user;
 
     if (!value || !type) {
@@ -22,6 +22,7 @@ export class CreateTransactionController {
       type,
       userID: id,
       categoryID,
+      transact_date,
     });
 
     return response.status(201).send();

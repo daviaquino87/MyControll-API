@@ -18,8 +18,18 @@ export class TransactionRepository implements ITransactionRepository {
     type,
     userID,
     categoryID,
+    transact_date,
   }: ICreateTransaction): Promise<void> {
-    const transaction = new Transaction({ value, type, userID, categoryID });
+    if (transact_date) {
+      transact_date = new Date(transact_date);
+    }
+    const transaction = new Transaction({
+      value,
+      type,
+      userID,
+      categoryID,
+      transact_date: transact_date ?? new Date(),
+    });
 
     const raw = this.repository.create(TypeormMapper.toTypeorm(transaction));
 

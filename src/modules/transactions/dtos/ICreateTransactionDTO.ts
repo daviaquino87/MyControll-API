@@ -3,4 +3,5 @@ export interface ICreateTransaction {
   type: string;
   categoryID?: string;
   userID: string;
+  transact_date?: Date;
 }

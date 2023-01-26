@@ -6,6 +6,7 @@ interface IPropsTransaction {
   type: string;
   userID: string;
   categoryID?: string;
+  transact_date?: Date;
   created_At: Date;
 }
 
@@ -58,6 +59,14 @@ export class Transaction {
 
   public get categoryID(): string {
     return this.props.categoryID;
+  }
+
+  public set transact_date(date: Date) {
+    this.props.transact_date = date;
+  }
+
+  public get transact_date(): Date {
+    return this.props.transact_date;
   }
 
   public get created_At(): Date {

@@ -8,6 +8,7 @@ export class TypeormMapper {
       value: transaction.value,
       type: transaction.type,
       userID: transaction.userID,
+      transact_date: transaction.transact_date,
       categoryID: transaction.categoryID,
       created_At: transaction.created_At,
     };
@@ -21,6 +22,7 @@ export class TypeormMapper {
         type: transaction.type,
         value: transaction.value,
         userID: transaction.userID,
+        transact_date: transaction.transact_date,
         categoryID: transaction.categoryID,
         created_At: transaction.created_At,
       },

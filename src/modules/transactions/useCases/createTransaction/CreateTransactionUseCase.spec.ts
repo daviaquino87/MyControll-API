@@ -17,6 +17,7 @@ describe("Transactions tests", () => {
       value: 121,
       type: "Deposite",
       userID: "userId",
+      transact_date: new Date("2021/09/08"),
     };
 
     await createTransactionUseCase.execute(transaction);

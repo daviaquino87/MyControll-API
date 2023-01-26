@@ -9,12 +9,19 @@ export class CreateTransactionUseCase {
     @inject("TransactionRepository")
     private transactionRepository: ITransactionRepository
   ) {}
-  async execute({ value, type, userID, categoryID }: ICreateTransaction) {
+  async execute({
+    value,
+    type,
+    userID,
+    categoryID,
+    transact_date,
+  }: ICreateTransaction) {
     await this.transactionRepository.create({
       type,
       value,
       userID,
       categoryID,
+      transact_date,
     });
   }
 }

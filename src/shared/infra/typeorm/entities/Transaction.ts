@@ -18,6 +18,9 @@ export class Transaction {
   @Column({ type: "text" })
   type: string;
 
+  @Column({ default: "now()" })
+  transact_date: Date;
+
   @ManyToOne(() => User)
   @Column({ type: "text" })
   userID: string;
