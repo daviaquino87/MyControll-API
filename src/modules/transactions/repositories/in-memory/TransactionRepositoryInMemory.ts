@@ -23,7 +23,6 @@ export class TransactionRepositoryInMemory implements ITransactionRepository {
       transact_date: transact_date ?? new Date(),
     });
 
-    console.log(transaction);
     this.transactions.push(transaction);
   }
 
