@@ -38,7 +38,6 @@ export class TransactionRepository implements ITransactionRepository {
 
   async listAll(userID: string): Promise<Transaction[]> {
     const data = await this.repository.findBy({ userID });
-
     const user = data.map((user) => TypeormMapper.toApplication(user));
 
     return user;
