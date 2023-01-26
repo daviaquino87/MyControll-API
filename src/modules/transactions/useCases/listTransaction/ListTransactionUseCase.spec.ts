@@ -38,7 +38,7 @@ describe("Transaction list test", () => {
     await createUserUseCase.execute(user);
 
     const transaction = {
-      type: "deposite",
+      type: "deposit",
       userID: userRepositoryInMemory.users[0].id,
       value: 121,
     };

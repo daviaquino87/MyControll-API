@@ -1,5 +1,6 @@
 import { Replace } from "../../../helper/Replace";
 import { v4 as uuidV4 } from "uuid";
+import { AppError } from "../../../shared/error/AppError";
 
 interface IPropsTransaction {
   value: number;
@@ -38,7 +39,7 @@ export class Transaction {
   }
 
   public set type(type: string) {
-    this.props.type = type;
+    throw new AppError("Invalid type");
   }
 
   public get type(): string {

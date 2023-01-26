@@ -1,3 +1,4 @@
+import { AppError } from "../../../../shared/error/AppError";
 import { inject, injectable } from "tsyringe";
 
 import { ICreateTransaction } from "../../dtos/ICreateTransactionDTO";
@@ -16,6 +17,10 @@ export class CreateTransactionUseCase {
     categoryID,
     transact_date,
   }: ICreateTransaction) {
+    if (type !== "buy" && type !== "deposit") {
+      throw new AppError("The type must be 'buy' or 'deposit'");
+    }
+
     await this.transactionRepository.create({
       type,
       value,
