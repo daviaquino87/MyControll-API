@@ -7,7 +7,7 @@ interface IPropsTransaction {
   type: string;
   userID: string;
   categoryID?: string;
-  transact_date?: Date;
+  transact_date: Date;
   created_At: Date;
 }
 
@@ -16,13 +16,17 @@ export class Transaction {
   private props: IPropsTransaction;
 
   constructor(
-    props: Replace<IPropsTransaction, { created_At?: Date }>,
+    props: Replace<
+      IPropsTransaction,
+      { created_At?: Date; transact_date?: Date }
+    >,
     id?: string
   ) {
     (this._id = id ?? uuidV4()),
       (this.props = {
         ...props,
         created_At: props.created_At ?? new Date(),
+        transact_date: props.transact_date ?? new Date(),
       });
   }
 
@@ -39,7 +43,7 @@ export class Transaction {
   }
 
   public set type(type: string) {
-    throw new AppError("Invalid type");
+    this.props.type = type;
   }
 
   public get type(): string {
@@ -60,10 +64,6 @@ export class Transaction {
 
   public get categoryID(): string {
     return this.props.categoryID;
-  }
-
-  public set transact_date(date: Date) {
-    this.props.transact_date = date;
   }
 
   public get transact_date(): Date {

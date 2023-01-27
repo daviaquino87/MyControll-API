@@ -7,6 +7,7 @@ import { AppError } from "../../../error/AppError";
 
 type JWTPlayload = {
   id: string;
+  exp: number;
 };
 
 export const ensureAuthenticated = async (
@@ -16,9 +17,19 @@ export const ensureAuthenticated = async (
 ) => {
   const { authorization } = request.headers;
 
+  if (!authorization) {
+    throw new AppError("Unauthorized!", 401);
+  }
+
   const userRepository = new UserRepository();
 
   const token = String(authorization).split(" ");
+
+  const verify = jwt.decode(token[1]) as JWTPlayload;
+
+  if (new Date(verify.exp * 1000).getTime() < new Date().getTime()) {
+    throw new AppError("Unauthorized!", 401);
+  }
 
   const { id } = jwt.verify(
     token[1],

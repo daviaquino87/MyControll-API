@@ -21,8 +21,7 @@ export class Transaction {
   @Column({ default: "now()" })
   transact_date: Date;
 
-  @ManyToOne(() => User)
-  @Column({ type: "text" })
+  @Column()
   userID: string;
 
   @Column({ type: "text", nullable: true })
