@@ -2,11 +2,9 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToMany,
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
-import { ForeignKeyMetadata } from "typeorm/metadata/ForeignKeyMetadata";
 import { User } from "./User";
 
 @Entity("categories")
@@ -17,6 +15,7 @@ export class Category {
   @Column()
   name: string;
 
+  @ManyToOne(() => User)
   @Column()
   userId: string;
 
