@@ -35,4 +35,14 @@ export class CategoryRepository implements ICategoryRepository {
 
     return category;
   }
+
+  async listCategories(userID: string): Promise<Category[]> {
+    const data = await this.repository.findBy({ userId: userID });
+
+    const categories = data.map((category) =>
+      TypeormMapper.toApplication(category)
+    );
+
+    return categories;
+  }
 }

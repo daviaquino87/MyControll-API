@@ -21,7 +21,9 @@ describe("create Category test", () => {
 
     await createCategoryUseCase.execute(category);
 
-    expect(categoryRepositoryInMemory.categorys[0].name).toEqual(category.name);
+    expect(categoryRepositoryInMemory.categories[0].name).toEqual(
+      category.name
+    );
   });
 
   it("should not be able possible to create a category with name already exists", async () => {

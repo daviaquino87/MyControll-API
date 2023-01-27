@@ -1,73 +1,147 @@
-# MyControl 1.0
+# MyControll
 
-#
+Api de controle financeiro
 
-## Cadastro de usuario
+## Stack utilizada
 
-### Requisitos funcionais
+**Back-end:** Node, Express, Tsyringe, Typeorm, Typescript
 
-- Cadastrar novo usuario.
+## Funcionalidades
 
-### Regra de negocio
+- Criação de Usuario
+- Autenticação de Usuario
+- Criação de transação
+- Criação de categoria
+- Listagem de balanço financeiro
 
-- Não pode ter mais de um usuario com o mesmo Email ou CPF.
+## Variáveis de Ambiente
 
-- A senha do usuario deve ter mais de 8 caracteres.
+Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
 
-- O usuario deve informar Nome, email, CPF, senha, e data de nascimento.
+`JWT_PASS=`
 
-## Login de usuario
+`PORT=`
 
-### Requisitos funcionais
+`DB_DATABASE=`
 
-- Um usuario deve realizar login.
+`DB_USERNAME=`
 
-### Regra de negocio
+`DB_PASSWORD=`
 
-- O usuario so deve poder realizar login por um dispositivo por vez
+`DB_HOST=`
 
-- Um usuario deve realizar login com email e senha.
+## Rodando localmente
 
-- um usuario deve conseguir fazer login com outras plataformas (github,facebook,google)
+Clone o projeto
 
-## Cadastro de Transação
+```bash
+  git clone https://github.com/daviaquino87/MyControll-API.git
+```
 
-### Requisitos funcionais
+Entre no diretório do projeto
 
-- Deve ser possivel cadastar uma nova transação.
+```bash
+  cd my-projectMyControll-API
+```
 
-### Regra de negocio
+Instale as dependências
 
-- O usuario deve informar Valor, Data e tipo da transação.
+```bash
+  npm install
+```
 
-- A transação pode ser do tipo debito ou deposito.
+Inicie os containers docker
 
-- A transação deve ser associado a um usuario.
+```bash
+  docker-compose up
+```
 
-- A transação pode ser associado a uma categoria
+## Rodando os testes
 
-- Caso não seja passada uma data para a transação, a data atual deve ser adotada.
+Para rodar os testes, rode o seguinte comando
 
-## Cadastro de categoria
+```bash
+  npm run test
+```
 
-### Requisitos funcionais
+## Documentação da API
 
-- Deve ser possivel cadastar uma nova categoria.
+#### Criando um usuario
 
-### Regra de negocio
+```http
+  POST /users
+```
 
-- O usuario deve informar nome e usuario ID deve ser associoado pelo usuario logado.
+| Parâmetro    | Tipo     | Descrição                                         |
+| :----------- | :------- | :------------------------------------------------ |
+| `name`       | `string` | **Obrigatório**. Nome do usuario                  |
+| `email`      | `string` | **Obrigatório**. Email do usuario (UN)            |
+| `cpf`        | `string` | **Obrigatório**. CPF do usuario (UN)              |
+| `birth_date` | `string` | **Obrigatório**. Data de aniversario (YYYY-MM-DD) |
+| `password`   | `string` | **Obrigatório**. Senha do usuario                 |
 
-- Não deve ser possivel cadastrar duas categorias com o mesmo nome para o mesmo usuario.
+#### Autenticando um usuario
 
-- Ao deletar uma categoria as transações associadas devem ser deletadas.
+```http
+  POST /login
+```
 
-## Listagem de Balanço
+| Parâmetro  | Tipo     | Descrição                         |
+| :--------- | :------- | :-------------------------------- |
+| `email`    | `string` | **Obrigatório**. Email do usuario |
+| `password` | `string` | **Obrigatório**. Senha do usuario |
 
-### Requisitos funcionais
+## Rotas protegidas
 
-- Deve retornar o balanço dos gastos do usuario.
+#### Criando nova transação
 
-### Requisitos não funcionais
+```http
+  POST /transactions
+```
 
-- O cauculo de balanço é feito subtraindo os debitos dos depositos
+| Parâmetro       | Tipo     | Descrição                                                              |
+| :-------------- | :------- | :--------------------------------------------------------------------- |
+| `value`         | `number` | **Obrigatório**. Valor da transação                                    |
+| `type`          | `string` | **Obrigatório**. Tipo da transação (buy = compra - deposit = deposito) |
+| `transact_date` | `string` | **Obrigatório**. Data da transação (YYYY-MM-DD)                        |
+| `categoryID`    | `string` | **Obrigatório**. Categoria da transação caso possua                    |
+
+#### Listando transações
+
+```http
+  GET /transactions
+```
+
+| Parâmetro | Tipo | Descrição                                             |
+| :-------- | :--- | :---------------------------------------------------- |
+| `no-body` | `-`  | ----------------------------------------------------- |
+
+#### Listando Balanço financeiro
+
+```http
+  GET /transactions/balance
+```
+
+| Parâmetro | Tipo | Descrição                                             |
+| :-------- | :--- | :---------------------------------------------------- |
+| `no-body` | `-`  | ----------------------------------------------------- |
+
+#### Criando nova categoria
+
+```http
+  POST /categories
+```
+
+| Parâmetro | Tipo     | Descrição                          |
+| :-------- | :------- | :--------------------------------- |
+| `name`    | `string` | **Obrigatório**. Nome da categoria |
+
+#### Listando categorias
+
+```http
+  GET /categories
+```
+
+| Parâmetro | Tipo | Descrição                                             |
+| :-------- | :--- | :---------------------------------------------------- |
+| `no-body` | `-`  | ----------------------------------------------------- |
