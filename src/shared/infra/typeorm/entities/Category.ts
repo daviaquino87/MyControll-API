@@ -1,11 +1,4 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryColumn,
-} from "typeorm";
-import { User } from "./User";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
 @Entity("categories")
 export class Category {
@@ -15,7 +8,6 @@ export class Category {
   @Column()
   name: string;
 
-  @ManyToOne(() => User)
   @Column()
   userId: string;
 
